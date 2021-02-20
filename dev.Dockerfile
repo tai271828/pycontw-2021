@@ -9,9 +9,10 @@ RUN npm ci
 
 COPY assets ./assets
 COPY components ./components
+COPY i18n ./i18n
 COPY layouts ./layouts
 COPY middleware ./middleware
-COPY pages ./pages 
+COPY pages ./pages
 COPY plugins ./plugins
 COPY static ./static
 COPY store ./store
@@ -19,9 +20,10 @@ COPY utils ./utils
 COPY nuxt.config.js .babelrc ./
 
 ENV ROUTER_BASE /
-ENV BASE_URL mock-server:9876
+ENV BASE_URL http://mock-server:9876
 ENV BUILD_TARGET server
 ENV HOST 0.0.0.0
+ENV API_URL_BROWSER http://0.0.0.0:9876
 
 RUN npm run build
 
